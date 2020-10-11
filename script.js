@@ -38,18 +38,19 @@ function checkRequired(inputArr){
         console.log(input.id);
         if(input.value.trim() === ""){
             console.log(input.value, " empty");
-            showError(input, input.id+" is required");
+            showError(input, getFieldName(input)+" is required");
         }else{
             console.log(input.value, " not empty");
-            showSuccess(input);
+            showSuccess(input); 
         }
      }
 }
 
 //get field name
-// function getFieldName(input){
-//     return inputArr[i].id
-// }
+function getFieldName(field){
+    console.log(field.id);
+    return field.id.charAt(0).toUpperCase() + field.id.slice(1);
+}
 
 //event listeners
 form.addEventListener("submit", function(e) {
